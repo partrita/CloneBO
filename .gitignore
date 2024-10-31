@@ -1,0 +1,45 @@
+# Python cache files
+wandb/
+data/
+temp/
+outputs/
+__pycache__/
+*.py[cod]
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# IPython
+profile_default/
+ipython_config.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Build folders
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Setuptools scm
+version.py
+
+# Other common files to ignore
+*.log
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db

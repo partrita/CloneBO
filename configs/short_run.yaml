@@ -1,0 +1,28 @@
+run:
+    seed: 0
+    name: 
+    redo: false
+    wandb: true
+
+sample:
+    importance_sample: false
+    n_cond: 25
+    clone_size: 2
+    n_particles: 2
+    n_resample: 4
+    max_steps: 1
+    total_mcmc_steps: 110
+
+likelihoods:
+    label_noise_sigma: 0.25
+    max_gen_batch_size: 200
+    n_cond: ${sample.n_cond}
+
+oracle:
+    n_labelled_mut: 2
+    start_ind: 0
+    oracle_name: clone
+
+model:
+    model_name: mistral
+
