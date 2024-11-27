@@ -4,7 +4,7 @@
 Here we introduce **Clone-informed Bayesian Optimization (CloneBO)**, a Bayesian optimization procedure that efficiently optimizes antibodies in the lab by teaching a generative model how our immune system optimizes antibodies. Our immune system makes antibodies by iteratively evolving specific portions of their sequences to bind their target strongly and stably, resulting in a set of related, evolving sequences known as a *clonal family*. We train a large language model, **CloneLM**, on hundreds of thousands of clonal families and use it to design sequences with mutations that are most likely to optimize an antibody within the human immune system. We guide our designs to fit previous measurements using a twisted sequential Monte Carlo procedure. We show that CloneBO optimizes antibodies substantially more efficiently than previous methods in realistic *in silico* experiments and designs stronger and more stable binders in *in vitro* wet lab experiments. 
 
 
-This codebase implements Clone-informed Bayesian Optimization (CloneBO) for iterative optimization of antibodies.
+This codebase implements Clone-informed Bayesian Optimization (**CloneBO**) for iterative optimization of antibodies.
 We include code to use CloneBO with the fitness oracle in Fig. 3a and the CoV oracles in Fig. 10.
 
 ----
@@ -20,13 +20,13 @@ After obtaining permission you must log into huggingface using ```huggingface-cl
 
 ### Pretrained models
 
-We are hosting [CloneLM on HuggingFace](https://huggingface.co/CloneBO/CloneLM).
-You can load the model with 
+We are hosting the [CloneLM models on HuggingFace](https://huggingface.co/CloneBO/CloneLM).
+You can load the heavy chain model with 
 ```
 model = AutoModelForCausalLM.from_pretrained("CloneBO/CloneLM-Heavy")
 tokenizer = AutoTokenizer.from_pretrained("CloneBO/CloneLM-Heavy")
 ```
-Running the scripts below automatically download CloneLM to use in CloneBO.
+Running the scripts below automatically download CloneLM heavy to use in CloneBO.
 We are also hosting the [fitness oracle from Fig. 3a on HuggingFace](https://huggingface.co/CloneBO/OracleLM).
 
 ### Usage
