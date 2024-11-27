@@ -23,8 +23,8 @@ After obtaining permission you must log into huggingface using ```huggingface-cl
 We are hosting [CloneLM on HuggingFace](https://huggingface.co/CloneBO/CloneLM).
 You can load the model with 
 ```
-model = AutoModelForCausalLM.from_pretrained("CloneBO/CloneLM")
-tokenizer = AutoTokenizer.from_pretrained("CloneBO/CloneLM")
+model = AutoModelForCausalLM.from_pretrained("CloneBO/CloneLM-Heavy")
+tokenizer = AutoTokenizer.from_pretrained("CloneBO/CloneLM-Heavy")
 ```
 Running the scripts below automatically download CloneLM to use in CloneBO.
 We are also hosting the [fitness oracle from Fig. 3a on HuggingFace](https://huggingface.co/CloneBO/OracleLM).
