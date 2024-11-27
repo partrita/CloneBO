@@ -40,8 +40,8 @@ def train(cfg: DictConfig) -> None:
     ) = get_oracle_and_pool(OmegaConf.to_container(cfg.oracle))
 
     ############### load models ###############
-    model = AutoModelForCausalLM.from_pretrained("CloneBO/CloneLM")
-    tokenizer = AutoTokenizer.from_pretrained("CloneBO/CloneLM")
+    model = AutoModelForCausalLM.from_pretrained("CloneBO/CloneLM-Heavy")
+    tokenizer = AutoTokenizer.from_pretrained("CloneBO/CloneLM-Heavy")
     tokenizer.seq_sep_token = "[ClSep]"
     tokenizer.seq_sep_token_id = tokenizer.convert_tokens_to_ids(tokenizer.seq_sep_token)
     if torch.cuda.is_available():
