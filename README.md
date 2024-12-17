@@ -1,6 +1,7 @@
 # Bayesian Optimization of Antibodies Informed by a Generative Model of Evolving Sequences
 
-### Paper 
+[Alan N Amin](https://alannawzadamin.github.io), \*[Nate Gruver](https://ngruver.github.io), \*[Yilun Kuang](https://yilunkuang.github.io), \*[Lily Li](https://yucenli.com), [Hunter Elliott](https://www.bighatbio.com/profiles/hunter-elliott), [Calvin McCarter](https://calvinmccarter.com), [Aniruddh Raghu](https://aniruddhraghu.com), [Peyton Greenside](https://www.bighatbio.com/profiles/peyton-greenside), [Andrew Gordon Wilson](https://cims.nyu.edu/~andrewgw/).
+(\* equal contribution)
 
 [arXiv](https://arxiv.org/abs/2412.07763). Presented at AIDrugX workshop at Neurips 2024 (won spotlight, outstanding poster awards).
 
