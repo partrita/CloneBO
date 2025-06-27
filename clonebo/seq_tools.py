@@ -4,6 +4,8 @@ import torch
 from Bio import AlignIO
 import os
 
+import subprocess
+
 from termcolor import colored
 
 def print_difs(seq, target_seq, color='light_grey'):
@@ -170,20 +172,24 @@ def seqs_to_fasta(seqs, fname):
             f.write(f'>{i}\n{seq}\n')
 
 
-def get_ali(seqs, clustalo_path='/scratch/aa11803/big_hat/clustalo'):
+def get_ali(seqs, clustalo_path='clustalo'):
     randn = np.random.randint(2**32)
     in_file = f'temp/temp_seq_{randn}.fa'
     out_file = f'temp/temp_ali_{randn}.phylip'
     seqs_to_fasta(seqs, in_file)
+    
     # print(f'{clustalo_path} -i {in_file} -o {out_file} --outfmt phylip --force')
-    os.system(f'{clustalo_path} -i {in_file} -o {out_file} --outfmt phylip --force')
+    #os.system(f'{clustalo_path} -i {in_file} -o {out_file} --outfmt phylip --force')
+    clustalo_path = 'clustalo'
+    subprocess.run([clustalo_path, "-i", in_file, "-o", out_file,"--outfmt", "phylip", "--force"])
+
     ali = AlignIO.read(open(out_file), "phylip")
     os.system("rm " + in_file)
     os.system("rm " + out_file)
     return np.array([str(seq.seq) for seq in ali])
 
 
-def get_ali_dist(seqs, cut_first=0, clustalo_path='/scratch/aa11803/big_hat/clustalo'):
+def get_ali_dist(seqs, cut_first=0, clustalo_path='clustalo'):
     seqs_ali = get_ali(seqs, clustalo_path=clustalo_path)
     seqs_ali = np.array([seq[cut_first:] for seq in seqs_ali])
     ham_dist = hamming_dist(seqs_ali, seqs_ali, alphabet_name='prot_w_ins')
